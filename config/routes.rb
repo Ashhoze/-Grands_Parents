@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'grands_parents#index'
+  root to: 'grand_parents#index'
+  resources :grand_parents do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
