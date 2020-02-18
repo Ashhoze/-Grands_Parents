@@ -28,21 +28,28 @@ ginette = GrandParent.create!(user: xavier, first_name: "ginette", last_name: "d
 
 file = URI.open("https://avatars3.githubusercontent.com/u/57186441?v=4")
 pamela.avatar.attach(io: file, filename: "pamela_avatar")
+pamela.save
 
 file = URI.open("https://avatars3.githubusercontent.com/u/29464477?v=4")
 virginia.avatar.attach(io: file, filename: "virginia_avatar")
+virginia.save
 
 file = URI.open("https://avatars1.githubusercontent.com/u/55446352?v=4")
 ashley.avatar.attach(io: file, filename: "ashley_avatar")
+ashley.save
 
 file = URI.open("https://avatars1.githubusercontent.com/u/54189912?v=4")
 benjamin.avatar.attach(io: file, filename: "benjamin_avatar")
+benjamin.save
 
 file = URI.open("https://avatars3.githubusercontent.com/u/54706761?v=4")
 xavier.avatar.attach(io: file, filename: "xavier_avatar")
+xavier.save
 
 file = URI.open("https://images.unsplash.com/photo-1537099605592-8e7ccefcb0ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
 romain.photos.attach(io: file, filename: "romain_photo")
+romain.save
 
 file = URI.open("https://images.unsplash.com/photo-1454418747937-bd95bb945625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
 bernard.photos.attach(io: file, filename: "bernard_photo")
+bernard.save
