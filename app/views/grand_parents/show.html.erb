@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col">
+    <% if @grand_parent.photos.attached? %>
     <% @grand_parent.photos.each do |photo| %>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key  %>);">
+      <% end %>
+      <% else %>
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path "https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" %>);">
       <% end %>
       <div class="container">
         <h1><%= @grand_parent.first_name %></h1>
