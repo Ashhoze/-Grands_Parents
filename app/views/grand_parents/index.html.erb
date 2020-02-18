@@ -1,5 +1,8 @@
 <%= render 'shared/banner' %>
 <% @grand_parents.each do |gp| %>
 <%= "#{gp.first_name} #{gp.last_name}" %>
+  <% gp.photos.each do |photo| %>
+    <%= cl_image_tag photo.key %>
+  <% end %>
 <% end  %>
 
