@@ -1,8 +1,33 @@
 <%= render 'shared/banner' %>
-<% @grand_parents.each do |gp| %>
-<%= "#{gp.first_name} #{gp.last_name}" %>
-  <% gp.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-  <% end %>
-<% end  %>
+<div class="container mt-5">
+  <div class="row">
+    <% @grand_parents.each do |gp| %>
+
+    <div class="col-4">
+      <div class="card-gp m-3">
+        <% if gp.photos.attached? %>
+          <% gp.photos.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+          <% end %>
+        <% else %>
+        <%= image_tag "https://image.freepik.com/free-vector/vector-cartoon-illustration-happy-grandparents_52569-736.jpg" %>
+        <% end %>
+        <div class="card-gp-infos">
+          <div>
+            <%= link_to grand_parent_path(gp) do  %>
+            <h2><%= gp.first_name %> <%= gp.last_name %></h2>
+            <p><%= gp.description %></p>
+          </div>
+          <h2 class="card-gp-pricing"><%= gp.price %>€</h2>
+
+          <%= cl_image_tag gp.user.avatar.key, class: "card-gp-user avatar-bordered" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="row">
+    </div>
+    <% end %>
+  </div>
+</div>
 

@@ -33,6 +33,10 @@
   color: white;
 }
 
+.logo {
+  border-radius: 50%;
+}
+
 /*** QUERIES ***/
 @media screen and (max-width: 470px) {
   .banner {

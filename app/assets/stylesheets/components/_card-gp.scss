@@ -1,0 +1,67 @@
+.card-gp {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 96%;
+}
+
+.card-gp > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-gp h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-gp p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-gp .card-gp-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-gp-infos .card-gp-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 55px;
+}
+
+.card-gp-infos {
+  line-height: 1.5rem;
+}
+
+.card-gp-infos a {
+  text-decoration: none;
+}
+
+.card-gp-infos h2{
+  text-transform: uppercase;
+  line-height: 1.8rem;
+  color: #794094;
+  font-size:1.2rem;
+}
+
+.card-gp-infos p {
+  font-size: 16px;
+  color: #765660;
+}
+
+.card-gp:hover {
+  transform: scale(1.1);
+  transition: 500ms;
+}
+
+
