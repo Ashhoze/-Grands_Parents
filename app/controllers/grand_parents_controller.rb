@@ -2,7 +2,15 @@ class GrandParentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index , :show]
 
   def index
-    @grand_parents = GrandParent.all
+    @grand_parents = GrandParent.geocoded # returns flats with coordinates
+
+    @markers = @grand_parents.map do |grand_parent|
+      {
+        lat: grand_parent.latitude,
+        lng: grand_parent.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { grand_parent: grand_parent })
+      }
+    end
   end
     def show
     @booking = Booking.new
@@ -22,6 +30,12 @@ class GrandParentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @grand_parent = GrandParent.find(params[:id])
+    @grand_parent.destroy
+    redirect_to grand_parents_path
   end
 
   private
