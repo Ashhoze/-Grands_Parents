@@ -1,0 +1,16 @@
+<div class="container w-50 label_black">
+  <h3>Réservation</h3>
+  <%= simple_form_for [grand_parent, booking] do |f| %>
+    <%= f.input :date_start,
+                label: "Date début réservation" %>
+    <%= f.input :date_end, label: "Date de fin réservation" %>
+
+    <div class="font-weight-bold" id="votre_resa"></div>
+
+    <div class="form-actions d-flex justify-content-center mt-3">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+
+

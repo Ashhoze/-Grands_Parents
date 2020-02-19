@@ -1,5 +1,6 @@
 class GrandParentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index , :show]
+
   def index
     @grand_parents = GrandParent.geocoded # returns flats with coordinates
 
@@ -21,10 +22,8 @@ class GrandParentsController < ApplicationController
   end
 
   def create
-
     @grand_parent = GrandParent.new(grand_parent_params)
     @grand_parent.user = current_user
-
 
     if @grand_parent.save
       redirect_to grand_parent_path(@grand_parent)
