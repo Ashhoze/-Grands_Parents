@@ -1,16 +1,17 @@
 class BookingsController < ApplicationController
-    def new
-    @grand_parent = GrandParent.find(params[:grand_parent_id])
-    @booking = Booking.new
-  end
+  # def new
+  #   @grand_parent = GrandParent.find(params[:grand_parent_id])
+  #   @booking = Booking.new
+  # end
   def create
-    @booking = Booking.new(booking_params)
     @grand_parent = GrandParent.find(params[:grand_parent_id])
+    @booking = Booking.new(booking_params)
     @booking.grand_parent = @grand_parent
+    @booking.user = current_user
     if @booking.save
-      redirect_to grand_parent_path(@booking.grand_parent)
+      redirect_to grand_parent_path(@grand_parent)
     else
-      render :new
+      render '/'
     end
   end
 
@@ -23,6 +24,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date_start, :date_end, :review, :user_id, :grand_parent_id, :total_price)
+    params.require(:booking).permit(:date_start, :date_end)
   end
 end
+

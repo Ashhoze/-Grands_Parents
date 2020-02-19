@@ -13,14 +13,44 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="card-product-infos">
-    <h4><%= @grand_parent.description %></h4>
-    <p>🌟<%= @grand_parent.hobby %></p>
-    <p>🌟Ville:<%= @grand_parent.city %></p>
-    <p>🌟Age:<%= @grand_parent.age %> ans</p>
-    <p>🌟Prix:<%= @grand_parent.price %> euros💶</p>
-</div>
+<div class="d-flex flex-wrap">
+  <div class="container w-50">
+    <div class="card-product-infos">
+      <h4><%= @grand_parent.description %></h4>
+      <p>🌟<%= @grand_parent.hobby %></p>
+      <p>🌟Ville:<%= @grand_parent.city %></p>
+      <p>🌟Age:<%= @grand_parent.age %> ans</p>
+      <p>🌟Prix:<span id="price_gp"><%= @grand_parent.price %></span> euros💶</p>
+    </div>
+  </div>
+
+  <%= render "bookings/new", grand_parent: @grand_parent, booking: @booking %>
 </div>
 
+
+<script>
+
+const booking_date_start = document.getElementById('booking_date_start_3i');
+const booking_date_end = document.getElementById('booking_date_end_3i');
+const votre_resa = document.getElementById('votre_resa');
+const grand_parent_price = parseInt(document.getElementById('price_gp').innerText, 10);
+let x = 0;
+let y = 0;
+
+booking_date_start.addEventListener('change', (e) => {
+  x = e.target.value;
+  let total = (y-x)*grand_parent_price;
+  if (total > 0) {
+    votre_resa.innerText = `🌟 Le montant total de la réservation est de ${total} pour ${y-x} jours`;
+  }
+});
+
+booking_date_end.addEventListener('change', (e) => {
+  y = e.target.value;
+  let total = (y-x)*grand_parent_price;
+  if (total > 0) {
+    votre_resa.innerText = `🌟 Le montant total de la réservation est de ${total} pour ${y-x} jours`;
+  }
+});
+</script>
 
