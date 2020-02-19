@@ -25,6 +25,12 @@ class GrandParentsController < ApplicationController
     end
   end
 
+  def destroy
+    @grand_parent = GrandParent.find(params[:id])
+    @grand_parent.destroy
+    redirect_to grand_parents_path
+  end
+
   private
 
   def grand_parent_params
