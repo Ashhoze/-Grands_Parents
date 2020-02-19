@@ -21,10 +21,10 @@ benjamin = User.create!(first_name: "benjamin", last_name: "dupont", email: "pdp
 xavier = User.create!(first_name: "xavier", last_name: "tl", email: "xavier@tl.com", password: "123456")
 
 puts "creating gp..."
-romain = GrandParent.create!(user: pamela, first_name: "romain", last_name: "dupuit", age: 78, description: "Papi gateau, experience à partager, ps: parlez fort, je suis un peu sourd", hobby: "j'adore manger en cachette", city: "paris", price: 30)
-bernard = GrandParent.create!(user: virginia, first_name: "bernard", last_name: "lermit", age: 86, description: "Venez passer un moment de detente dans notre maison à Provins", hobby: "jardinage", city: "provins", price: 40)
-josette = GrandParent.create!(user: ashley, first_name: "josette", last_name: "lys", age: 84, description: "Mami au coeur tendre, aimerait un peu de compagnie pour partager ses souvenirs ", hobby: "parler", city: "paris", price: 45)
-ginette = GrandParent.create!(user: xavier, first_name: "ginette", last_name: "dumas", age: 70, description: "Mémé dynamique, avec moi ca va bouger", hobby: "randonné", city: "lourdes", price: 45)
+romain = GrandParent.create!(user: pamela, first_name: "romain", last_name: "dupuit", age: 78, description: "Papi gateau, experience à partager, ps: parlez fort, je suis un peu sourd", hobby: "j'adore manger en cachette", city: "18 boulevard soult, Paris", price: 30)
+bernard = GrandParent.create!(user: virginia, first_name: "bernard", last_name: "lermit", age: 86, description: "Venez passer un moment de detente dans notre maison à Provins", hobby: "jardinage", city: "38 rue de la pompe, Paris", price: 40)
+josette = GrandParent.create!(user: ashley, first_name: "josette", last_name: "lys", age: 84, description: "Mami au coeur tendre, aimerait un peu de compagnie pour partager ses souvenirs ", hobby: "parler", city: "8 rue Paul Cezanne, Creteil", price: 45)
+ginette = GrandParent.create!(user: xavier, first_name: "ginette", last_name: "dumas", age: 70, description: "Mémé dynamique, avec moi ca va bouger", hobby: "randonné", city: "16 Villa Gaudelet, Paris", price: 45)
 
 file = URI.open("https://avatars3.githubusercontent.com/u/57186441?v=4")
 pamela.avatar.attach(io: file, filename: "pamela_avatar")
