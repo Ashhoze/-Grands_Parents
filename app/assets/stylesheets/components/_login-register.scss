@@ -1,0 +1,93 @@
+body .box{
+  margin: 0;
+  padding: 0;
+  background: url('https://images.unsplash.com/photo-1508963493744-76fce69379c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  height: 100vh;
+}
+
+.form {
+  padding: 40px;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, .8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+  border-radius: 10px;
+}
+
+.box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.box .form-group {
+  position: relative;
+}
+
+.box #user_email,
+#user_password,
+#user_first_name,
+#user_last_name,
+#user_password_confirmation {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+label {
+  font-size: 18px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.box #user_email:focus,
+#user_password:focus,
+#user_first_name:focus,
+#user_last_name:focus,
+#user_password_confirmation:focus {
+  border-bottom: #6c63ff solid 3px;
+  outline: none;
+  transition: all 0.6s ease;
+}
+
+input.btn {
+  outline: none;
+  color: #fff;
+  background-color: #6c63ff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+input.btn:hover {
+  background-color: #fcb834;
+  color: #000;
+}
+
+/*** QUERIES ***/
+@media screen and (max-width: 560x) {
+  .form {
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 1056px) {
+  .form {
+    width: 520px;
+  }
+}
+
+
+
+
+
+
