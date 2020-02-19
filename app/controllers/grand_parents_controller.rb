@@ -2,8 +2,7 @@ class GrandParentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index , :show]
 
   def index
-    @grand_parents = GrandParent.geocoded # returns flats with coordinates
-
+    @grand_parents = GrandParent.geocoded.order(created_at: :desc) # returns flats with coordinates
     @markers = @grand_parents.map do |grand_parent|
       {
         lat: grand_parent.latitude,
