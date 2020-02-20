@@ -30,6 +30,7 @@
 <div class="container d-flex justify-content-center">
  <p>
   <%= link_to 'Supprimer', grand_parent_path(@grand_parent), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
+  <%= link_to 'Modifier', edit_grand_parent_path(@grand_parent), class: 'btn btn-flat' %>
  </p>
 </div>
 

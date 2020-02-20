@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'grand_parents#index'
 
   resources :grand_parents do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :reservation, :edit, :update]
   end
 
   resources :bookings, only: [:index, :destroy]

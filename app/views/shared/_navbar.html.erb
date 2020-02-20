@@ -10,10 +10,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <% if params[:controller] == "grand_parents" && params[:action] == "index" %>
+  <%= render "grand_parents/form_search" %>
+<% end %>
       <% if user_signed_in? %>
       <li class="nav-item active">
         <%= link_to "Mes locations", "#", class: "nav-link" %>
       </li>
+
       <li class="nav-item">
         <%= link_to "Proposer des grands-parents", new_grand_parent_path, class: "nav-link" %>
       </li>
