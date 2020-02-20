@@ -1,16 +1,16 @@
-<div class="container w-50 label_black">
-  <h3>Réservation</h3>
-  <%= simple_form_for [grand_parent, booking] do |f| %>
-    <%= f.input :date_start,
-                label: "Date début réservation" %>
-    <%= f.input :date_end, label: "Date de fin réservation" %>
+<div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>"></div>
+<div class="container">
+  <div class="form-wrapper">
+    <h2>Réservez</h2>
+    <%= simple_form_for [grand_parent, booking] do |f| %>
+      <%= f.input :date_start, label: "Sélectionnez vos dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none"} %>
+      <%= f.input :date_end, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
+      <div id="votre_resa"></div>
 
-    <div class="font-weight-bold" id="votre_resa"></div>
+      <%= f.button :submit, "Book", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
-    <div class="form-actions d-flex justify-content-center mt-3">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-</div>
-</div>
 
 
