@@ -26,7 +26,7 @@
 
   <%= render "bookings/new", grand_parent: @grand_parent, booking: @booking %>
 </div>
-  
+
 <div class="container d-flex justify-content-center">
  <p>
   <%= link_to 'Supprimer', grand_parent_path(@grand_parent), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
@@ -46,7 +46,7 @@ booking_date_start.addEventListener('change', (e) => {
   x = e.target.value;
   let total = (y-x)*grand_parent_price;
   if (total > 0) {
-    votre_resa.innerText = `🌟 Le montant total de la réservation est de ${total} pour ${y-x} jours`;
+    votre_resa.innerText = `🌟 Le montant total de votre réservation est de ${total}€ pour ${y-x} jour(s).`;
   }
 });
 

@@ -3,13 +3,18 @@ class BookingsController < ApplicationController
   #   @grand_parent = GrandParent.find(params[:grand_parent_id])
   #   @booking = Booking.new
   # end
+
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def create
     @grand_parent = GrandParent.find(params[:grand_parent_id])
     @booking = Booking.new(booking_params)
     @booking.grand_parent = @grand_parent
     @booking.user = current_user
     if @booking.save
-      redirect_to grand_parent_path(@grand_parent)
+      redirect_to bookings_path
     else
       render '/'
     end
