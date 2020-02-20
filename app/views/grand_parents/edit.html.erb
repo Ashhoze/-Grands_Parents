@@ -1,0 +1,17 @@
+<!-- <div class="container mt-2 rounded" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490349708435-19d432984978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1487&q=80);"> -->
+<div class="box">
+  <div class="add-form container col-sm-8 col-lg-4" style="top: 160px;">
+    <h1>Modifie Ton Annonce</h1>
+      <%= simple_form_for (@grand_parent) do |f| %>
+        <%= f.input :first_name, label: "Prénom"%>
+        <%= f.input :last_name, label: "Nom" %>;
+        <%= f.input :age, label:"Age" %>
+        <%= f.input :description %>
+        <%= f.input :hobby, label: "Loisirs" %>
+        <%= f.input :city, label: "Adresse" %>
+        <%= f.input :price, label: "Prix" %>
+        <%= f.input :photos, as: :file %>
+        <%= f.submit "Modifier", class:"btn btn-primary" %>
+      <% end %>
+  </div>
+</div>
