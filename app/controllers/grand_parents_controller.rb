@@ -3,7 +3,12 @@ class GrandParentsController < ApplicationController
   before_action :set_grand_parent, only: [:show, :edit, :update, :destroy]
 
   def index
-    @grand_parents = GrandParent.geocoded.order(created_at: :desc) # returns flats with coordinates
+    @query = params[:query]
+    if @query.present?
+      @grand_parents = GrandParent.search_by_first_name_city_hobby(@query).order(created_at: :desc)
+    else
+      @grand_parents = GrandParent.geocoded.order(created_at: :desc) # returns flats with coordinates
+    end
     @markers = @grand_parents.map do |grand_parent|
       {
         lat: grand_parent.latitude,
