@@ -1,0 +1,10 @@
+<div class= "form-inline">
+   <%= form_tag grand_parents_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouve ton vieux"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary " %>
+<% end %>
+</div>
