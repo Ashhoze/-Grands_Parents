@@ -23,8 +23,10 @@
       <p>🌟Prix:<span id="price_gp"><%= @grand_parent.price %></span> euros💶</p>
     </div>
   </div>
-
+  <div class="col">
   <%= render "bookings/new", grand_parent: @grand_parent, booking: @booking %>
+
+  </div>
 </div>
 
 <div class="container d-flex justify-content-center">
@@ -34,29 +36,7 @@
  </p>
 </div>
 
-<script>
 
-const booking_date_start = document.getElementById('booking_date_start_3i');
-const booking_date_end = document.getElementById('booking_date_end_3i');
-const votre_resa = document.getElementById('votre_resa');
-const grand_parent_price = parseInt(document.getElementById('price_gp').innerText, 10);
-let x = 0;
-let y = 0;
 
-booking_date_start.addEventListener('change', (e) => {
-  x = e.target.value;
-  let total = (y-x)*grand_parent_price;
-  if (total > 0) {
-    votre_resa.innerText = `🌟 Le montant total de votre réservation est de ${total}€ pour ${y-x} jour(s).`;
-  }
-});
 
-booking_date_end.addEventListener('change', (e) => {
-  y = e.target.value;
-  let total = (y-x)*grand_parent_price;
-  if (total > 0) {
-    votre_resa.innerText = `🌟 Le montant total de la réservation est de ${total} pour ${y-x} jours`;
-  }
-});
-</script>
 
