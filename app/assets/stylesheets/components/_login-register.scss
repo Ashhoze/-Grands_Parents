@@ -1,21 +1,52 @@
 body .box{
   margin: 0;
   padding: 0;
-  background: url('https://images.unsplash.com/photo-1508963493744-76fce69379c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  height: 150vh;
+  height: calc(100vh-140px);
+  background-color: white;
 }
 
+.add-form {
+  margin-top: 2vh;
+}
 .form {
   padding: 40px;
   position: absolute;
   top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, .8);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
-  border-radius: 10px;
+  border-radius: 15px;
+  font-color: black;
+}
+
+.form-control {
+  background: transparent;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#submit-new {
+  margin-bottom: 2vh;
+}
+
+#new-form-buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.add-image{
+  background: url('https://images.unsplash.com/photo-1508963493744-76fce69379c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+#add-title {
+  margin: 7vh 0 0 7vh;
 }
 
 .box h2 {
@@ -25,8 +56,17 @@ body .box{
   text-align: center;
 }
 
+.box h1 {
+  color: white;
+}
+
 .box .form-group {
   position: relative;
+}
+
+.d-flex {
+  width: 50%;
+  padding: 2;
 }
 
 .box #user_email,
