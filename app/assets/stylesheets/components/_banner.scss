@@ -1,7 +1,15 @@
 .banner {
-  padding: 200px 0;
-  margin: 20px;
-  background-size: cover;
+  // padding: 200px 0;
+  // margin: 20px;
+  // background-size: cover;
+  .carousel-item {
+    height: 640px;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  position: relative;
 }
 
 .banner h1 {
@@ -12,15 +20,17 @@
   font-weight: 500;
   text-align: center;
   font-family: 'Special Elite', cursive;
+  margin: 5px;
 }
 
 .banner p {
   font-size: 23px;
   color: #fff;
-  opacity: .7;
+  opacity: 1;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   text-align: center;
   font-family: 'Lato', sans-serif;
+  margin: 10px;
 }
 
 .btn-flat {
@@ -38,6 +48,11 @@
 
 .logo {
   border-radius: 50%;
+}
+
+.home-tagline {
+  position: absolute;
+  bottom: 100px;
 }
 
 /*** QUERIES ***/
