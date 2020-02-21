@@ -1,41 +1,68 @@
-<% if @grand_parent.photos.attached? %>
-  <% @grand_parent.photos.each do |photo| %>
-    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key, :width=>300, :height=>200, :crop=>"fill"  , :gravity=>"face" %>);">
-      <% end %>
-      <% else %>
-      <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path "https://image.freepik.com/vecteurs-libre/conception-grands-parents_25030-23616.jpg" %>);">
-
-      <% end %>
-        <%= @grand_parent.first_name %>
+<div class="show-gp">
+  <% if @grand_parent.photos.attached? %>
+    <% @grand_parent.photos.each do |photo| %>
+      <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key, :width=>300, :height=>200, :crop=>"fill"  , :gravity=>"face" %>);">
+        <% end %>
+        <% else %>
+        <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path "logo.svg" %>);">
+        <% end %>
+          <%= @grand_parent.first_name %>
+      </div>
     </div>
-  </div>
 
-<div class="d-flex flex-wrap">
-  <div class="container w-50">
-    <div class="card-product-infos">
-      <h4><%= @grand_parent.description %></h4>
-      <p>🌟<%= @grand_parent.hobby %></p>
-      <p>🌟Ville:<%= @grand_parent.city %></p>
-      <p>🌟Age:<%= @grand_parent.age %> ans</p>
-      <p>🌟Prix:<span id="price_gp"><%= @grand_parent.price %></span> euros💶</p>
+  <div class="container">
+    <div class="d-flex justify-content-around w-100">
+      <div class="w-50 p-4">
+        <div class="card-product-infos">
+          <div style="height: 130px; padding: 15px;">
+            <h4><%= @grand_parent.description %></h4>
+          </div>
+          <div>
+            <div class="tags-infos">
+              <p><i class="fas fa-cat"></i> <%= @grand_parent.hobby %></p>
+            </div>
+            <div class="tags-infos">
+              <p><i class="fas fa-map-marker-alt"></i> <%= @grand_parent.city %></p>
+            </div>
+            <div class="tags-infos">
+              <p><i class="fas fa-birthday-cake"></i> <%= @grand_parent.age %> ans</p>
+            </div>
+            <div class="tags-infos">
+              <p><i class="fas fa-euro-sign"></i> <span id="price_gp"><%= @grand_parent.price %></span> euros</p>
+            </div>
+
+          </div>
+        </div>
+
+        <% if @bookings.present? %>
+        <h2>Les avis</h2>
+        <% end %>
+        <% @bookings.each do |booking| %>
+        <div class="card-product-review">
+        <p><%= booking.user.full_name %></p>
+        <p><%= booking.review %></p>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="w-50 p-4">
+      <%= render "bookings/new", grand_parent: @grand_parent, booking: @booking %>
+      </div>
     </div>
-  </div>
-  <div class="col">
-  <%= render "bookings/new", grand_parent: @grand_parent, booking: @booking %>
+
+
+
+    <div class="container d-flex justify-content-center">
+     <p>
+      <%= link_to 'Supprimer', grand_parent_path(@grand_parent), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
+      <%= link_to 'Modifier', edit_grand_parent_path(@grand_parent), class: 'btn btn-flat' %>
+     </p>
+
+
 
   </div>
+
 </div>
-<% @bookings.each do |booking| %>
-<%= booking.review %>
-<%= booking.user.full_name %>
-<% end %>
-
-
-<div class="container d-flex justify-content-center">
- <p>
-  <%= link_to 'Supprimer', grand_parent_path(@grand_parent), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
-  <%= link_to 'Modifier', edit_grand_parent_path(@grand_parent), class: 'btn btn-flat' %>
- </p>
 
 
 
