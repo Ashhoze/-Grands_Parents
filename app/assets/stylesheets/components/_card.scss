@@ -1,8 +1,8 @@
 .card-product-infos {
+  height: 400px;
   padding: 16px;
-    background-size: cover;
+  background-size: cover;
   background-position: center;
-  text-align: center;
   justify-content: center;
   align-items: center;
   color: black;
@@ -14,4 +14,46 @@
 .container a {
  text-decoration: none;
  color: grey;
+}
+
+.black label {
+  color: #3F4458;
+  font-weight: bold;
+}
+
+.black {
+  text-align: center;
+}
+
+.flatpickr-calendar {
+  margin: auto;
+}
+
+.tags-infos {
+  color: #765660;
+  padding: 3px;
+}
+
+.tags-infos .fas {
+  font-size: 30px;
+  padding: 8px;
+}
+
+.tags-infos p {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.card-product-review {
+  padding: 16px;
+  margin-top: 8px;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
