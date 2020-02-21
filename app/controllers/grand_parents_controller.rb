@@ -20,7 +20,7 @@ class GrandParentsController < ApplicationController
     def show
     @booking = Booking.new
     @grand_parent = GrandParent.find(params[:id])
-    @bookings       = Booking.where(grand_parent_id: @grand_parent.id)
+    @bookings       = @grand_parent.bookings
     @bookings_dates = @bookings.map do |booking|
       {
         from: booking.date_start,

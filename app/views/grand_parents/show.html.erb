@@ -1,18 +1,14 @@
-<div class="row">
-  <div class="col">
-    <% if @grand_parent.photos.attached? %>
-    <% @grand_parent.photos.each do |photo| %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key  %>);">
+<% if @grand_parent.photos.attached? %>
+  <% @grand_parent.photos.each do |photo| %>
+    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path photo.key, :width=>300, :height=>200, :crop=>"fill"  , :gravity=>"face" %>);">
       <% end %>
       <% else %>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path "https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" %>);">
+      <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path "https://image.freepik.com/vecteurs-libre/conception-grands-parents_25030-23616.jpg" %>);">
       <% end %>
-      <div class="container">
-        <h1><%= @grand_parent.first_name %></h1>
-      </div>
+        <%= @grand_parent.first_name %>
     </div>
   </div>
-</div>
+
 <div class="d-flex flex-wrap">
   <div class="container w-50">
     <div class="card-product-infos">
@@ -28,15 +24,17 @@
 
   </div>
 </div>
+<% @bookings.each do |booking| %>
+<%= booking.review %>
+<%= booking.user.full_name %>
+<% end %>
+
 
 <div class="container d-flex justify-content-center">
  <p>
   <%= link_to 'Supprimer', grand_parent_path(@grand_parent), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
   <%= link_to 'Modifier', edit_grand_parent_path(@grand_parent), class: 'btn btn-flat' %>
  </p>
-</div>
-
-
 
 
 

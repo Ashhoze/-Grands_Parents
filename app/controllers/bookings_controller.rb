@@ -1,9 +1,4 @@
 class BookingsController < ApplicationController
-  # def new
-  #   @grand_parent = GrandParent.find(params[:grand_parent_id])
-  #   @booking = Booking.new
-  # end
-
   def index
     @bookings = Booking.where(user: current_user)
   end
@@ -16,7 +11,16 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render '/'
+      render 'grand_parents/show'
+    end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to grand_parent_path(@booking.grand_parent_id)
+    else
+      render 'bookings'
     end
   end
 
@@ -29,7 +33,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date_start, :date_end)
+    params.require(:booking).permit(:date_start, :date_end, :review)
   end
 end
 
