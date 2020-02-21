@@ -17,7 +17,8 @@ class GrandParentsController < ApplicationController
       }
     end
   end
-    def show
+
+  def show
     @booking = Booking.new
     @grand_parent = GrandParent.find(params[:id])
     @bookings       = Booking.where(grand_parent_id: @grand_parent.id)
