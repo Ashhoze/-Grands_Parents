@@ -1,29 +1,37 @@
-<div class="row">
-  <div class="col">
-    <h2>Mes Réservations</h2>
-  </div>
-</div>
-<div class="row">
-  <% @bookings.each do |booking| %>
-  <div class="col">
-    <div class="card-booking">
-      <% if booking.grand_parent.photos.attached? %>
-      <% booking.grand_parent.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
-      <% end %>
-      <% else %>
-      <%= image_tag "https://image.freepik.com/vecteurs-libre/conception-grands-parents_25030-23616.jpg" %>
-      <% end %>
-      <div class="card-booking-infos">
-
-        <h3>Votre réservation avec <strong><%= booking.grand_parent.first_name %></strong></h3>
-        <p>Date de début le <strong><%= booking.date_start.strftime("%m/%d/%Y")  %></strong></p>
-        <p>Date de fin le <strong><%= booking.date_start.strftime("%m/%d/%Y") %></strong></p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Mes Réservations</h2>
     </div>
   </div>
-  <% end %>
+  <div class="row">
+    <div class="col-12">
+      <% @bookings.each do |booking| %>
+      <div class="d-flex justify-content-between mt-5" style="width: 100%;">
+      <div class="card-booking col-6">
+        <% if booking.grand_parent.photos.attached? %>
+        <% booking.grand_parent.photos.each do |photo| %>
+        <%= cl_image_tag photo.key %>
+        <% end %>
+        <% else %>
+        <%= image_tag "https://image.freepik.com/vecteurs-libre/conception-grands-parents_25030-23616.jpg" %>
+        <% end %>
+        <div class="card-booking-infos">
+          <h3>Votre réservation avec <strong><%= booking.grand_parent.first_name %></strong></h3>
+          <p>Date de début le <strong><%= booking.date_start.strftime("%m/%d/%Y")  %></strong></p>
+          <p>Date de fin le <strong><%= booking.date_start.strftime("%m/%d/%Y") %></strong></p>
+        </div>
+      </div>
+
+        <div class="form-wrapper col-6">
+          <%= simple_form_for [ booking.grand_parent, booking ] do |f| %>
+          <%= f.input :review %>
+          <%= f.button :submit, "Envoyez votre avis", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-
 
