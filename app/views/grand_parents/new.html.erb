@@ -1,7 +1,7 @@
 <!-- <div class="container mt-2 rounded" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490349708435-19d432984978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1487&q=80);"> -->
 <div class="box">
   <div class="add-image">
-    <h1 id="add-title">Ajoute Ton Grand Parent</h1>
+    <h1 class="add-title">Ajoute Ton Grand Parent</h1>
     </div>
   <div class="add-form container col-sm-8 col-lg-4">
       <%= simple_form_for (@grand_parent) do |f| %>
@@ -28,17 +28,15 @@
 
         <%= f.input :city, label: false, placeholder: "Adresse" %>
         <%= f.input :description, label: false, placeholder: "Description"  %>
-          <div id="new-form-buttons">
-            <label class="btn btn-outline-info" style="style: width: 100%">
-              Ajouter une photo <em> (10.5 Mb max.)</em>
-              <span style="display:none;">
-                <%= f.input :photo, as: :file, name: 'Photo' %>
-              </span>
-            </label>
-
-            <%= f.submit "Proposer", class: "btn btn-primary", id: "submit-new"  %>
-
-          </div>
+          <div class="new-form-buttons">
+          <label class="btn btn-outline-info" style="style: width: 100%">
+            Ajouter une photo <em> (10.5 Mb max.)</em>
+            <span style="display:none;">
+              <%= f.input :photo, as: :file, name: 'Photo' %>
+            </span>
+          </label>
+          <%= f.submit "Proposer", class: "btn btn-primary", class: "submit-new"  %>
+        </div>
       <% end %>
   </div>
 </div>
