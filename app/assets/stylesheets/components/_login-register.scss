@@ -30,11 +30,11 @@ body .box{
   justify-content: space-evenly;
 }
 
-#submit-new {
+.submit-new {
   margin-bottom: 2vh;
 }
 
-#new-form-buttons {
+.new-form-buttons {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -50,14 +50,14 @@ body .box{
   justify-content: start;
 }
 
-#add-title {
+.add-title {
   margin: 7vh 0 0 7vh;
 }
 
 .box h2 {
   margin: 0 0 30px;
   padding: 0;
-  color: #fff;
+  color: black;
   text-align: center;
 }
 
@@ -73,7 +73,10 @@ body .box{
   width: 50%;
   padding: 2;
 }
+.black_text{
+  color: black;
 
+}
 .box #user_email,
 #user_password,
 #user_first_name,
