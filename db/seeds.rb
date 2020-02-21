@@ -29,6 +29,8 @@ marie = GrandParent.create!(user: xavier, first_name: "Marie", last_name: "Paul"
 albert = GrandParent.create!(user: ashley, first_name: "Albert", last_name: "Dar", age: 87, description: "Je suis la douceur alliée à l'experience", hobby: "lire", city: "37 Rue Castillon, 83000 Toulon", price: 34)
 rose = GrandParent.create!(user: virginia, first_name: "Rose", last_name: "Jack", age: 100, description: "Pour ecouter l'amour infini, de l'etre qui a prit mon coeur sur le titanic", hobby: "ecriture", city: "256 boulevard Voltaire, paris", price: 45)
 pierre = GrandParent.create!(user: pamela, first_name: "Pierre", last_name: "Paul", age: 79, description: "Super héro qui ne porte pas de cape, on m'appelle PAPY", hobby: "films", city: "48 rue des marais, fontenay-sous-bois", price: 50)
+# karim = GrandParent.create!(user: ashley, first_name: "Karim", last_name: "Azib", age: 79, description: "Vieux avant l'heure, j'étais destiné à finir seul, j'ai besoin de votre compagnie...", hobby: "Aucun", city: "48 rue des marais, fontenay-sous-bois", price: 3)
+
 
 file = URI.open("https://avatars3.githubusercontent.com/u/57186441?v=4")
 pamela.avatar.attach(io: file, filename: "pamela_avatar")
@@ -83,7 +85,9 @@ pierre.photos.attach(io: file, filename: "pierre_photo")
 pierre.save
 
 
-
+# file = asset_path("images/karim.jpg")
+# karim.photos.attach(io: file, filename: "karim_photo")
+# karim.save
 
 
 
